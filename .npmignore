@@ -1,0 +1,8 @@
+/node_modules
+/src
+/tests
+/playgrounds
+biome.json
+build.config.ts
+tsconfig.json
+vitest.config.ts

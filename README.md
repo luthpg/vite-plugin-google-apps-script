@@ -25,10 +25,10 @@ $ npm install vite-plugin-vue-googleappsscript --save-dev
 import vue from '@vitejs/plugin-vue';
 import { defineConfig } from 'vite';
 import { viteSingleFile } from 'vite-plugin-singlefile';
-import viteVueOnGas from 'vite-plugin-vue-googleappsscript';
+import { vueOnGas } from 'vite-plugin-vue-googleappsscript';
 
 export default defineConfig({
-  plugins: [vue(), viteSingleFile(), viteVueOnGas()],
+  plugins: [vue(), viteSingleFile(), vueOnGas()],
   build: {
     outDir: 'dist',
   },

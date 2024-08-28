@@ -1,10 +1,10 @@
 import type { OutputChunk } from 'rollup';
 import type { PluginOption } from 'vite';
-interface ReplaceRule {
+export interface ReplaceRule {
   from: string | RegExp;
   to: string;
 }
-const PRESET_REPLACE_MASTER: Array<ReplaceRule> = [
+export const PRESET_REPLACE_MASTER: Array<ReplaceRule> = [
   {
     from: /\=`https:\/\/vuejs\.org\/errors\/#runtime-\$\{(.+?)\}`/g,
     to: '=$1',
@@ -20,7 +20,7 @@ const PRESET_REPLACE_MASTER: Array<ReplaceRule> = [
   },
 ];
 
-const vueOnGasPlugin = (
+export const vuOnGas = (
   replaceMaster: Array<ReplaceRule> = PRESET_REPLACE_MASTER,
 ): PluginOption => {
   return {
@@ -48,5 +48,3 @@ const vueOnGasPlugin = (
     },
   };
 };
-
-export default vueOnGasPlugin;

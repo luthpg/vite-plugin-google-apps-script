@@ -1,5 +1,8 @@
 # vite-plugin-vue-googleappsscript
 
+[![npm version](https://badge.fury.io/js/vite-plugin-vue-googleappsscript.svg)](https://www.npmjs.com/package/vite-plugin-vue-googleappsscript)
+[![License][license-src]][license-href]
+
 Vite plugin for Vue on GoogleAppsScript via @google/clasp.
 
 ## Installation
@@ -31,3 +34,6 @@ export default defineConfig({
   },
 });
 ```
+
+[license-src]: https://img.shields.io/github/license/luthpg/nuxt3-basic-auth-module?style=flat&logoColor=020420&color=00DC82
+[license-href]: https://github.com/luthpg/nuxt3-basic-auth-module/pkgs/npm/nuxt3-basic-auth-module

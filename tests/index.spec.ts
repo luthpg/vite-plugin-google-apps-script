@@ -1,9 +1,9 @@
 import type { Plugin } from 'vite';
-import { vuOnGas } from './../src/index';
+import { vueOnGas } from './../src/index';
 
 describe('create plugin', () => {
   it('正常にプラグインが生成されること', () => {
-    const plugin = vuOnGas() as Plugin;
+    const plugin = vueOnGas() as Plugin;
     expect(plugin.name).toBe('vue-on-gas');
     expect(plugin.generateBundle).not.toBeUndefined();
     expect(plugin.generateBundle).toBeTypeOf('function');

@@ -20,7 +20,7 @@ export const PRESET_REPLACE_MASTER: Array<ReplaceRule> = [
   },
 ];
 
-export const vuOnGas = (
+export const vueOnGas = (
   replaceMaster: Array<ReplaceRule> = PRESET_REPLACE_MASTER,
 ): PluginOption => {
   return {

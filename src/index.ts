@@ -36,7 +36,6 @@ export const PRESET_REPLACE_MASTER: Array<ReplaceRule> = [
         return match;
       }
       const newInnerContent = innerContent.replace(/\n/g, '\\n');
-      console.error(newInnerContent);
       return `\`${newInnerContent}\``;
     },
   },

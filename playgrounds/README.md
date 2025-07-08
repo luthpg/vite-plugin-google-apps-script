@@ -1,1 +1,0 @@
-# Example for use vite-plugin-vue-googleappsscript

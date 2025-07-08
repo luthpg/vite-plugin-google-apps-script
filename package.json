@@ -1,7 +1,7 @@
 {
-  "name": "vite-plugin-vue-googleappsscript",
-  "version": "0.1.3",
-  "description": "Vite plugin for Vue on GoogleAppsScript via @google/clasp",
+  "name": "vite-plugin-google-apps-script",
+  "version": "0.2.0",
+  "description": "Vite plugin for HtmlService on GoogleAppsScript via @google/clasp",
   "type": "module",
   "exports": {
     ".": {
@@ -17,13 +17,13 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "fix": "biome check --write src/ tests/",
-    "prepare": "npm run fix && npm run test && npm run build",
-    "test": "vitest run"
+    "check": "biome check --write src/ tests/",
+    "prepublish": "pnpm run check && pnpm run test && pnpm run build",
+    "test": "vitest run",
+    ":react": "pnpm -C playgrounds/react"
   },
   "keywords": [
     "vite",
-    "vue",
     "googleappsscript",
     "vite-plugin"
   ],
@@ -31,19 +31,19 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:luthpg/vite-plugin-vueOnGoogleAppsScript.git"
+    "url": "git+ssh://git@github.com:luthpg/vite-plugin-googleAppsScript.git"
   },
   "bugs": {
-    "url": "https://github.com/luthpg/vite-plugin-vueOnGoogleAppsScript/issues"
+    "url": "https://github.com/luthpg/vite-plugin-googleAppsScript/issues"
   },
   "dependencies": {
-    "vite": "^5.4.2"
+    "vite": "^7.0.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
-    "rollup": "^4.21.1",
-    "typescript": "^5.5.4",
+    "@biomejs/biome": "2.1.0",
+    "rollup": "^4.44.2",
+    "typescript": "^5.8.3",
     "unbuild": "^2.0.0",
-    "vitest": "^2.0.5"
+    "vitest": "^3.2.4"
   }
 }

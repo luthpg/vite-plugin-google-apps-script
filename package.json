@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-google-apps-script",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Vite plugin for HtmlService on GoogleAppsScript via @google/clasp",
   "type": "module",
   "exports": {

@@ -30,7 +30,7 @@ export const PRESET_REPLACE_MASTER: Array<ReplaceRule> = [
   },
   // for template-literals with return value
   {
-    from: /`([\n\s\S]+?)`/gm,
+    from: /(?<!\\)`([\n\s\S]+?)(?<!\\)`/gm,
     replacer(match, innerContent) {
       if (!/\n/.test(innerContent)) {
         return match;
@@ -41,7 +41,7 @@ export const PRESET_REPLACE_MASTER: Array<ReplaceRule> = [
   },
   // for template-literals with urls
   {
-    from: /`([\n\s\S]+?)`/gm,
+    from: /(?<!\\)`([\n\s\S]+?)(?<!\\)`/gm,
     replacer(match, innerContent) {
       if (!/http.+/.test(innerContent)) {
         return match;

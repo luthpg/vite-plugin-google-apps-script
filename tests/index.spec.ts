@@ -20,12 +20,14 @@ describe('default rules', () => {
 const a = "<?!= value ?>";
 const b = \`line1
 line2\`;
+const b_plus = "\\\`not target\\\`";
 const c = \`visit http://example.com for info\`;
 `;
     const afterHtml = `
 
 const a = '<?!= value ?>';
 const b = \`line1\\nline2\`;
+const b_plus = "\\\`not target\\\`";
 const c = \`visit  for info\`;
 `;
     let result = beforeHtml;

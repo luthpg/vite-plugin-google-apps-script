@@ -1,6 +1,6 @@
-# vite-plugin-googleappsscript
+# vite-plugin-google-apps-script
 
-[![npm version](https://badge.fury.io/js/vite-plugin-googleappsscript.svg)](https://www.npmjs.com/package/vite-plugin-googleappsscript)
+[![npm version](https://badge.fury.io/js/vite-plugin-google-apps-script.svg)](https://www.npmjs.com/package/vite-plugin-google-apps-script)
 [![License][license-src]][license-href]
 
 Vite plugin for HtmlService on GoogleAppsScript via @google/clasp.
@@ -10,13 +10,13 @@ Vite plugin for HtmlService on GoogleAppsScript via @google/clasp.
 You'll first need to install packages like this:
 
 ```
-$ npm i vite vite-plugin-singlefile @google/clasp vue @types/google-apps-script --save-dev
+$ npm i vite vite-plugin-singlefile @google/clasp vue @types/google-apps-script terser --save-dev
 ```
 
-Next, install `vite-plugin-googleappsscript`:
+Next, install `vite-plugin-google-apps-script`:
 
 ```
-$ npm install vite-plugin-googleappsscript --save-dev
+$ npm install vite-plugin-google-apps-script --save-dev
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ $ npm install vite-plugin-googleappsscript --save-dev
 ```ts: vite.config.ts
 import { defineConfig } from 'vite';
 import { viteSingleFile } from 'vite-plugin-singlefile';
-import { gas } from 'vite-plugin-googleappsscript';
+import { gas } from 'vite-plugin-google-apps-script';
 
 export default defineConfig({
   plugins: [viteSingleFile(), gas()],
@@ -34,5 +34,5 @@ export default defineConfig({
 });
 ```
 
-[license-src]: https://img.shields.io/github/license/luthpg/vite-plugin-googleappsscript?style=flat&logoColor=020420&color=00DC82
-[license-href]: https://github.com/luthpg/vite-plugin-googleappsscript
+[license-src]: https://img.shields.io/github/license/luthpg/vite-plugin-google-apps-script?style=flat&logoColor=020420&color=00DC82
+[license-href]: https://github.com/luthpg/vite-plugin-google-apps-script

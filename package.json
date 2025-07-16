@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-google-apps-script",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Vite plugin for HtmlService on GoogleAppsScript via @google/clasp",
   "type": "module",
   "exports": {
@@ -31,17 +31,18 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:luthpg/vite-plugin-googleAppsScript.git"
+    "url": "git+ssh://git@github.com:luthpg/vite-plugin-google-apps-script.git"
   },
   "bugs": {
-    "url": "https://github.com/luthpg/vite-plugin-googleAppsScript/issues"
+    "url": "https://github.com/luthpg/vite-plugin-google-apps-script/issues"
   },
   "dependencies": {
+    "rollup": "^4.45.1",
+    "terser": "^5.43.1",
     "vite": "^7.0.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.1.0",
-    "rollup": "^4.44.2",
     "typescript": "^5.8.3",
     "unbuild": "^2.0.0",
     "vitest": "^3.2.4"

@@ -1,5 +1,5 @@
 import type { Plugin } from 'vite';
-import { gas, PRESET_REPLACE_MASTER } from './../src/index';
+import { gas, presetReplaceRules } from './../src/index';
 
 describe('create plugin', () => {
   it('正常にプラグインが生成されること', () => {
@@ -31,7 +31,7 @@ const b_plus = "\\\`not target\\\`";
 const c = \`visit  for info\`;
 `;
     let result = beforeHtml;
-    PRESET_REPLACE_MASTER.forEach(({ from, to, replacer }) => {
+    presetReplaceRules.forEach(({ from, to, replacer }) => {
       if (replacer != null) result = result.replace(from, replacer);
       else if (to != null) result = result.replace(from, to);
     });

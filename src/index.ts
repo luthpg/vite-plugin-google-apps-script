@@ -61,13 +61,20 @@ const defaultConfig: Options = {
   useTerserMinify: true,
 };
 
+const pluginName = 'vite:google-apps-script';
+
 export const gas = (options: Options = defaultConfig): PluginOption => {
   return {
-    name: 'vite-plugin-google-apps-script',
+    name: pluginName,
     apply: 'build',
     enforce: 'post',
     config(config) {
       if (config.build == null) config.build = {};
+      if (config.build.minify === 'esbuild') {
+        this.warn(
+          `[plugin ${pluginName}] The plugin will override the "esbuild" minify option to use "terser" or disable minification.`,
+        );
+      }
       config.build.minify = options.useTerserMinify ? 'terser' : false;
     },
     generateBundle(_outputOptions, outputBundle) {

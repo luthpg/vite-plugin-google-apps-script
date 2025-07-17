@@ -21,7 +21,7 @@ export type ReplaceRule =
 export const presetReplaceRules: Array<ReplaceRule> = [
   // for jsDoc comments
   {
-    from: /\n*\/\*\*[\n\s\S]+?\*\/\n*/g,
+    from: /\n*\/\*\*[\n\s\S]*?\*\/\n*/g,
     to: '',
   },
   // for scriptlet of apps script
@@ -56,14 +56,16 @@ export type Options =
       useTerserMinify?: boolean;
     };
 
-const defaultConfig: Options = {
+const defaultOptions: Required<Options> = {
   useDefault: true,
   useTerserMinify: true,
+  replaceRules: [],
 };
 
 const pluginName = 'vite:google-apps-script';
 
-export const gas = (options: Options = defaultConfig): PluginOption => {
+export const gas = (options?: Options): PluginOption => {
+  const mergedOptions: Required<Options> = { ...defaultOptions, ...options };
   return {
     name: pluginName,
     apply: 'build',
@@ -75,15 +77,15 @@ export const gas = (options: Options = defaultConfig): PluginOption => {
           `[plugin ${pluginName}] The plugin will override the "esbuild" minify option to use "terser" or disable minification.`,
         );
       }
-      config.build.minify = options.useTerserMinify ? 'terser' : false;
+      config.build.minify = mergedOptions.useTerserMinify ? 'terser' : false;
     },
     generateBundle(_outputOptions, outputBundle) {
-      console.info();
       const chunkNames = Object.keys(outputBundle);
       chunkNames.forEach((chunkName) => {
         const chunk = outputBundle[chunkName] as OutputChunk;
-        const configs = [...(options?.replaceRules ?? [])];
-        options?.useDefault !== false && configs.push(...presetReplaceRules);
+        const configs = [...mergedOptions.replaceRules];
+        mergedOptions.useDefault !== false &&
+          configs.push(...presetReplaceRules);
         configs.forEach(({ from, to, replacer }) => {
           const isMatch =
             typeof from === 'string'

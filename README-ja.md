@@ -3,34 +3,34 @@
 [![npm version](https://badge.fury.io/js/vite-plugin-google-apps-script.svg)](https://www.npmjs.com/package/vite-plugin-google-apps-script)
 [![License][license-src]][license-href]
 
-A Vite plugin for HtmlService on GoogleAppsScript via @google/clasp.
+GoogleAppsScriptの`HtmlService`向け Viteプラグイン（`@google/clasp`構成用）
 
-## What this plugin does
+## このプラグインができること
 
-This plugin performs the following operations during the build process:
+本プラグインは、ビルド時に以下の処理を行います:
 
-- **Minification with Terser**: Replaces the default minifier (`esbuild`) with `terser` to preserve newlines in template literals, as `esbuild` uses return values instead of \n.
-- **AppsScript Deployment Optimization**: Removes or modifies code patterns that may cause issues when deploying to GoogleAppsScript:
-  - Removes JSDoc comments
-  - Escapes scriptlets in strings by converting double quotes to single quotes
-  - Removes URLs from template literals
-- **Configurable Options**: All operations can be customized or disabled via plugin options.
+- **Terserによる圧縮設定**: テンプレートリテラル内の改行を維持するため、`esbuild`ではなく`terser`を使って圧縮
+- **GoogleAppsScriptでのデプロイのための最適化**: GoogleAppsScriptへのデプロイ時に影響する可能性のある表現を削除・修正:
+  - JSDocコメントの削除
+  - 文字列内スクリプトレットのエスケープ（ダブルクォート→シングルクォート）
+  - テンプレートリテラル内のURL削除
+- **柔軟なオプション設定**: すべての処理はプラグインオプションでカスタマイズ・無効化可能
 
-## Installation
+## インストール
 
-First, install the required packages:
+まず、以下の関連パッケージをインストールしてください:
 
 ```bash
 npm i vite vite-plugin-singlefile @google/clasp @types/google-apps-script --save-dev
 ```
 
-Then, install `vite-plugin-google-apps-script`:
+次に、本プラグインを追加します:
 
 ```bash
 npm install vite-plugin-google-apps-script --save-dev
 ```
 
-## Usage
+## 使い方
 
 ```ts: vite.config.ts
 import { defineConfig } from 'vite';
@@ -38,14 +38,14 @@ import { viteSingleFile } from 'vite-plugin-singlefile';
 import { gas } from 'vite-plugin-google-apps-script';
 
 export default defineConfig({
-  plugins: [gas(), viteSingleFile()], // Make sure to add `gas()` before `viteSingleFile()`
+  plugins: [gas(), viteSingleFile()], // `gas()` を `viteSingleFile()` より先に追加すること
   build: {
     outDir: 'dist',
   },
 });
 ```
 
-...or you can set options:
+- オプション設定例
 
 ```ts: vite.config.ts
 import { defineConfig } from 'vite';
@@ -55,8 +55,8 @@ import { gas } from 'vite-plugin-google-apps-script';
 export default defineConfig({
   plugins: [
     gas({
-      useDefault: false, // Do not use the package's default replaceRules
-      replaceRules: [ // Add your own replaceRules, used in `String.replace(from, replacer ?? to)`
+      useDefault: false, // デフォルトのreplaceRulesを無効化
+      replaceRules: [ // 独自のreplaceRulesを追加可能
         {
           from: 'https://test.example.com',
           to: '--masked-url--',
@@ -69,7 +69,7 @@ export default defineConfig({
           },
         }
       ],
-      useTerserMinify: false, // Do not minify JavaScript code. This option overrides other config settings.
+      useTerserMinify: false, // JavaScriptをminifyしない（他の設定より優先されます）
     }),
     viteSingleFile(),
   ],

@@ -1,0 +1,26 @@
+{
+  "name": "vue3",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:frontend": "vue-tsc -b && vite build",
+    "build:backend": "rolldown -c",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/tsconfig": "^0.7.0",
+    "rolldown": "1.0.0-beta.24",
+    "rolldown-plugin-remove-export": "^0.1.1",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4",
+    "vite-plugin-google-apps-script": "../..",
+    "vite-plugin-singlefile": "^2.3.0",
+    "vue-tsc": "^2.2.12"
+  }
+}

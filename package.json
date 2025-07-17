@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-google-apps-script",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Vite plugin for HtmlService on GoogleAppsScript via @google/clasp",
   "type": "module",
   "exports": {
@@ -20,7 +20,8 @@
     "check": "biome check --write src/ tests/",
     "prepublish": "pnpm run check && pnpm run test && pnpm run build",
     "test": "vitest run",
-    ":react": "pnpm -C playgrounds/react"
+    ":react": "pnpm -C playgrounds/react",
+    ":vue": "pnpm -C playgrounds/vue3"
   },
   "keywords": [
     "vite",

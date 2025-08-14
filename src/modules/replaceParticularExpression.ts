@@ -43,7 +43,6 @@ export type Options =
 
 const defaultOptions: Required<Options> = {
   useDefault: true,
-  useTerserMinify: true,
   replaceRules: [],
 };
 

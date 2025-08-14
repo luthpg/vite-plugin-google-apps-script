@@ -1,8 +1,8 @@
 import type { PluginOption } from 'vite';
 
-export interface Options {
+export type Options = {
   useTerserMinify?: boolean;
-}
+};
 
 export function enforceTerser(
   { useTerserMinify }: Options = { useTerserMinify: true },

@@ -41,17 +41,18 @@
     "@babel/generator": "^7.28.3",
     "@babel/parser": "^7.28.3",
     "@babel/traverse": "^7.28.3",
-    "rollup": "^4.46.2",
-    "terser": "^5.43.1",
-    "vite": "^7.1.2"
+    "terser": "^5.43.1"
   },
   "devDependencies": {
     "@babel/types": "^7.28.2",
     "@biomejs/biome": "2.1.0",
     "@types/babel__generator": "^7.27.0",
     "@types/babel__traverse": "^7.28.0",
+    "rollup": "^4.46.2",
     "typescript": "^5.9.2",
-    "unbuild": "^2.0.0",
+    "unbuild": "^1.2.1",
+    "vite": "7.1.2",
     "vitest": "^3.2.4"
-  }
+  },
+  "packageManager": "pnpm@10.11.1"
 }

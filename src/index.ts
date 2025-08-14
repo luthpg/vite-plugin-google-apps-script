@@ -1,3 +1,4 @@
+import type { PluginOption } from 'vite';
 import {
   type Options as EnforceTerserOptions,
   enforceTerser,

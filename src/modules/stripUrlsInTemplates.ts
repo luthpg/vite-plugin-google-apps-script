@@ -10,7 +10,7 @@ const traverse = _traverse.default;
 
 type UrlPattern = RegExp | ((s: string) => string);
 
-export interface Options {
+export type Options = {
   includes?: Array<string | RegExp> | string | RegExp;
   excludes?: Array<string | RegExp> | string | RegExp;
   /**
@@ -21,7 +21,7 @@ export interface Options {
   urlPattern?: UrlPattern;
   /** Parser options for Babel */
   parserPlugins?: ParserPlugin[];
-}
+};
 
 const DEFAULT_URL_REGEX =
   /\b(?:https?:\/\/|ftp:\/\/|blob:|data:[^'")\s]+|\/\/)[\w/:%#$&?()~.=+\-{}]+/gi;
@@ -55,7 +55,7 @@ export function stripUrlsInTemplates(options: Options = {}): Plugin {
     transform(code, id, _options) {
       if (!filter(id)) return null;
 
-      let ast: ParseResult<File>;
+      let ast: ParseResult<t.File>;
       try {
         ast = parse(code, {
           sourceType: 'module',

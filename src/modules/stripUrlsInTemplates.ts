@@ -6,7 +6,7 @@ import type { Plugin } from 'vite';
 import { createFilter } from 'vite';
 
 // @ts-expect-error `@babel/traverse` is CJS script
-const traverse = _traverse.default;
+const traverse = _traverse.default ?? _traverse;
 
 type UrlPattern = RegExp | ((s: string) => string);
 

@@ -38,21 +38,26 @@
     "url": "https://github.com/luthpg/vite-plugin-google-apps-script/issues"
   },
   "dependencies": {
-    "@babel/generator": "^7.28.6",
-    "@babel/parser": "^7.28.6",
-    "@babel/traverse": "^7.28.6",
+    "@babel/generator": "^7.29.1",
+    "@babel/parser": "^7.29.0",
+    "@babel/traverse": "^7.29.0",
+    "sharp": "^0.34.5",
     "terser": "^5.46.0"
   },
   "devDependencies": {
-    "@babel/types": "^7.28.6",
-    "@biomejs/biome": "2.3.12",
+    "@babel/types": "^7.29.0",
+    "@biomejs/biome": "2.3.15",
     "@types/babel__generator": "^7.27.0",
     "@types/babel__traverse": "^7.28.0",
-    "rollup": "^4.56.0",
+    "@types/node": "^25.2.3",
+    "rollup": "^4.57.1",
     "typescript": "^5.9.3",
     "unbuild": "^3.6.1",
-    "vite": "7.3.1",
+    "vite": "^7.3.1",
     "vitest": "^4.0.18"
   },
-  "packageManager": "pnpm@10.11.1"
+  "peerDependencies": {
+    "vite": "^7 || ^8"
+  },
+  "packageManager": "pnpm@10.18.1"
 }

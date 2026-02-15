@@ -11,7 +11,7 @@ describe('gas plugin', () => {
   it('デフォルトオプションでプラグイン配列が生成されること', () => {
     const plugins = gas() as PluginOption[];
     expect(Array.isArray(plugins)).toBe(true);
-    expect(plugins).toHaveLength(3);
+    expect(plugins).toHaveLength(4);
 
     // enforceTerserプラグイン
     expect(plugins[0]).toHaveProperty('name', 'vite:enforce-terser');
@@ -28,6 +28,10 @@ describe('gas plugin', () => {
     );
     expect(plugins[2]).toHaveProperty('apply', 'build');
     expect(plugins[2]).toHaveProperty('enforce', 'post');
+
+    // inlineImagesプラグイン
+    expect(plugins[3]).toHaveProperty('name', 'vite:gas-inline-images');
+    expect(plugins[3]).toHaveProperty('apply', 'build');
   });
 
   it('カスタムオプションでプラグインが生成されること', () => {
@@ -35,11 +39,12 @@ describe('gas plugin', () => {
       minify: { useTerserMinify: false },
       url: { urlPattern: /custom-pattern/ },
       replace: { useDefault: false, replaceRules: [] },
+      images: { enable: false },
     };
 
     const plugins = gas(options) as PluginOption[];
     expect(Array.isArray(plugins)).toBe(true);
-    expect(plugins).toHaveLength(3);
+    expect(plugins).toHaveLength(4);
   });
 });
 

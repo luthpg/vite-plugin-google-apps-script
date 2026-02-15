@@ -3,6 +3,7 @@ import {
   type Options as EnforceTerserOptions,
   enforceTerser,
 } from './modules/enforceTerser';
+import { type InlineImagesOptions, inlineImages } from './modules/inlineImages';
 import {
   type Options as ReplaceParticularExpressionOptions,
   replaceParticularExpression,
@@ -16,12 +17,19 @@ export type Options = {
   minify?: EnforceTerserOptions;
   url?: StripUrlsOptions;
   replace?: ReplaceParticularExpressionOptions;
+  images?: InlineImagesOptions;
 };
 
-export const gas = ({ minify, url, replace }: Options = {}): PluginOption => {
+export const gas = ({
+  minify,
+  url,
+  replace,
+  images,
+}: Options = {}): PluginOption => {
   return [
     enforceTerser(minify),
     stripUrlsInTemplates(url),
     replaceParticularExpression(replace),
+    inlineImages(images),
   ];
 };
